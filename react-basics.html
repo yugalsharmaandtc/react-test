@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React Basics</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>  
+    <!-- React.js conatin all files which are relevant for websites and apps. but react-dom.js conatin all files and code which are relevant only for websites.that why we have loaded react-dom.js file.along with react.js file.here for the sake of video we are loading content6 from supersimpledev otherwise it should be loaded from reactjs.org or any other official website. -->
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+    let cost1=0; 
+let cost2=0
+let totalCost=0;
+    function handleClick() {
+      alert('Button clicked!');
+      
+    }
+
+    function handleCost1() {
+        cost1+=10;
+        console.log('Total cost Socks',cost1);
+        handleTotalCost();
+    }
+
+    function handleCost2() {
+        cost2+=8;
+        console.log('Total cost Tshirt',cost2);
+        handleTotalCost();
+    }
+
+    function handleTotalCost() {
+  const sum = cost1 + cost2;
+  console.log('Total Cost', sum);
+  return sum;
+}
+    const button=<button onClick={handleClick}>Hello</button>
+    const paragraph=<p>Welcome to SuperSimpleDev React Course</p>
+// Initialize cost variable
+    const div= <div>
+        <button onClick={handleClick}>Hello</button>
+        <button>Good Job</button>
+        <p>Welcome to SuperSimpleDev React Course</p>
+        <p>My Name is Yugal</p>
+
+        <div>
+        <p>Cotton Socks</p>
+        <p>Price: 10$</p>
+        <button onClick={handleCost1}>Add to cart</button>    
+        </div>
+
+        <div>
+        <p>T- Shirts</p>
+        <p>Price: 8$</p>
+        <button onClick={handleCost2}>Add to cart</button>
+        </div>
+
+        <div>
+        <p>Product Cost={handleTotalCost}</p>
+        </div>
+    </div>
+    
+
+    
+      const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(<>{button},{paragraph}</>);
+      ReactDOM.createRoot(container).render(div);
+
+    //   Note: In above two lines its giving preference to the render(div) not wit tags <></>
+    </script>
+  </body>
+</html>
+
+
+
+<!-- ReactDOM.createRoot(container).render
+
+
+What does this line do?
+This line is part of React’s modern API for rendering React components into the DOM (the web page).
+
+Breaking it down:
+
+ReactDOM
+This is the library that lets React interact with the browser’s DOM. It provides methods to render React elements into HTML elements.
+
+createRoot(container)
+createRoot is a function introduced in React 18 for the new "root API".
+It takes a DOM element (container) as an argument.
+It prepares that element to be the "root" for your React app.
+
+.render
+This is a method on the object returned by createRoot.
+It is used to render React elements (like components, JSX, or even plain text) into the specified container.
+
+In your code:
+const container = document.querySelector('.js-container');
+ReactDOM.createRoot(container).render('Welcome to SuperSimpleDev React Course');
+container is the <div class="js-container"></div> in your HTML.
+ReactDOM.createRoot(container) sets up React to manage that div.
+.render('Welcome to SuperSimpleDev React Course') puts the text inside that div using React’s rendering system.
+
+Why use createRoot and .render?
+createRoot is the recommended way to start a React app in React 18+.
+It enables new features like concurrent rendering and better performance.
+.render is how you tell React what to show inside your root container.
+
+Summary
+ReactDOM.createRoot(container).render
+
+Sets up a DOM element for React rendering
+Renders React content into that element
+Uses the latest React rendering features
+Let me know if you want a deeper dive into any part! -->
