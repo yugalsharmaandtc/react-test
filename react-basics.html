@@ -4,17 +4,28 @@
     <title>React Basics</title>
   </head>
   <body>
-    <div class="js-container"></div>
+    <div class="js-container">
 
     <script src="https://unpkg.com/supersimpledev/react.js"></script>  
     <!-- React.js conatin all files which are relevant for websites and apps. but react-dom.js conatin all files and code which are relevant only for websites.that why we have loaded react-dom.js file.along with react.js file.here for the sake of video we are loading content6 from supersimpledev otherwise it should be loaded from reactjs.org or any other official website. -->
     <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
 
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
     <script type="text/babel">
     let cost1=0; 
 let cost2=0
 let totalCost=0;
+let date=dayjs().format('MMMM D')
+let time=dayjs().format('HH:mm:ss')
+
+setInterval(() => {
+        time=dayjs().format('HH:mm:ss')
+        const root=ReactDOM.createRoot(document.querySelector('.js-container'));
+        root.render(div);
+    }, 1000);
+
     function handleClick() {
       alert('Button clicked!');
       
@@ -61,16 +72,26 @@ let totalCost=0;
         <div>
         <p>Product Cost={handleTotalCost}</p>
         </div>
+
+        <div>
+        <p> Todays date={date}</p>  
+        </div>
+
+        <div>
+        <p> Time={time}</p>  
+        </div>
     </div>
     
 
     
-      const container = document.querySelector('.js-container');
-      ReactDOM.createRoot(container).render(<>{button},{paragraph}</>);
-      ReactDOM.createRoot(container).render(div);
+      // const container = document.querySelector('.js-container');
+      // ReactDOM.createRoot(container).render(<>{button},{paragraph}</>);
+      const root=ReactDOM.createRoot(document.querySelector('.js-container'));
+      root.render(div);
 
     //   Note: In above two lines its giving preference to the render(div) not wit tags <></>
     </script>
+    
   </body>
 </html>
 

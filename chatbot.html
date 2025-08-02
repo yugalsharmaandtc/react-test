@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chatbot</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+    // In react a component name should start with a capital letter/Pascal Case here we are using a function component named ChatInput
+      function ChatInput(){
+       return(
+        <>
+          <input placeholder="Ask Anything" />
+          <button>Send</button>
+        </>
+       )
+      }
+
+      function ChatMessage(props){
+        const message=props.message;
+        
+        return(
+         <div>
+         {message}
+          <img src="user.png" alt="" width= "35px" height="35px" />
+         </div>
+        );
+
+      }
+
+
+    const app=(
+      <>
+      {/*1.<ChatInput></ChatInput>*/}  
+      <ChatInput />
+      {/*3.ChatInput()
+        1 and 3 these are also two more ways to make show an component in react but the used is middle one the second one and 1 and second are same*/}
+      <ChatMessage message="hello chatbot!" />
+      </>
+      
+
+      )
+      const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(app);
+    </script>
+  </body>
+</html>
