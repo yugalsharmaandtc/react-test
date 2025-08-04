@@ -1,9 +1,9 @@
 
 
-export function Cards({img, title, description}){
+export default function Cards({img, title, description}){
 return (
 <>
-<div className="min-h-screen bg-gray-100 p-5">
+<div className="min-h-screen bg-gray-100 p-2">
       <div className="max-w-sm mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
         <img 
           className="h-48 w-full object-cover"
