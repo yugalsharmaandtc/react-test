@@ -15,3 +15,5 @@ function MainLayout({children}) {
 }
 
 export default MainLayout
+
+// Children prop is used to render the content passed between the opening and closing tags of MainLayout in App.jsx. Chilldren is coming from App.jsx where we are passing the Cards component as children to MainLayout.
