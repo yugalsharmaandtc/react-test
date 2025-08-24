@@ -7,7 +7,6 @@ function MainLayout({children}) {
   return (
     <div>
       <Navbar />
-      <Search />
       {children}
       <Footer />
     </div>

@@ -1,20 +1,22 @@
 import React from 'react';
-const handleSubmit = (e) => {
-    e.preventDefault();
-    const query = e.target.elements.search.value;
-    if (!query.trim()) {
-      alert('Please enter a search query');
-      return;
-    }
-    console.log('Search query:', query);
-  };
+// import { useState } from 'react';
+// const handleSubmit = (e) => {
+//     e.preventDefault();
+//     const query = e.target.elements.search.value;
+//     if (!query.trim()) {
+//       alert('Please enter a search query');
+//       return;
+//     }
+//     console.log('Search query:', query);
+//   };
 
-function Search() {
-  
+function Search({search,handleSearch, handleSubmit}) {
+
 
   return (
-    <div className="flex justify-center items-center bg-gray-100 py-2 w-full">
+    <div className="flex justify-center items-center bg-black-100 py-2 w-full">
       <form
+        // onSubmit={handleSubmit}
         onSubmit={handleSubmit}
         className="flex justify-center items-center space-x-2 w-full max-w-full sm:max-w-md"
         aria-label="Search form"
@@ -26,7 +28,9 @@ function Search() {
           type="text"
           name="search"
           id="search"
-          placeholder="Search..."
+          value={search}
+          onChange={handleSearch}
+          placeholder="What do you want to eat..."
           className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
         <button
@@ -106,3 +110,28 @@ export default Search;
  * - Ensure <input> has a name attribute for uncontrolled forms when using e.target.elements.
  * - Use outside placement for static, reusable functions; keep inside for functions needing component state or props.
  */
+
+// In react/htl the onsubmit function is attached to the form element not the button element. So when we click on the button it will trigger the onsubmit function.
+
+
+
+// imp note:
+
+// 📝 Why we use search and not setSearch in the query
+
+// search → holds the current state value (what you typed).
+
+// setSearch → function to update the state, not the value itself.
+
+// In the fetch call, we need the value of the input, so we use search.
+
+// setSearch is only used inside onChange to update search.
+
+// 👉 Rule of thumb:
+
+// Use setSearch → when updating.
+
+// Use search → when reading.
+
+
+// When props coming from app.jsx the search,handleSearch, and handleSubmit are passed as props to the Search component.but not setSearch becuase we are not updating the state. and setSearch is just used to update the state of the input value.
